@@ -60,7 +60,6 @@ alias cl='clear'
 alias source="exec zsh"
 
 
-
 # navigation
 cx() { cd "$@" && l; }
 fcd() { cd "$(find . -type d -not -path '*/.*' | fzf)" && l; }
