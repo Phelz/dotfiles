@@ -68,8 +68,8 @@ fv() { nvim "$(find . -type f -not -path '*/.*' | fzf)" }
 
 
 eval "$(zoxide init zsh)"
-# eval "$(atuin init zsh)"
-# eval "$(direnv hook zsh)"
+# eval "$(atuin init zsh)" # A command history search tool (not currently using it)
+# eval "$(direnv hook zsh)" # An environment switcher for the shell (not currently using it)
 
 # History configurations
 setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
