@@ -6,7 +6,8 @@
 
 # Plugins
 plug "zap-zsh/supercharge"
-plug "zap-zsh/fzf"							
+plug "zap-zsh/fzf"		
+plug "zap-zsh/exa"					
 plug "zsh-users/zsh-autosuggestions"
 plug "MichaelAquilina/zsh-you-should-use"		
 plug "chivalryq/git-alias"						
