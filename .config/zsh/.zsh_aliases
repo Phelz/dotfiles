@@ -1,0 +1,30 @@
+# Nmap
+alias nm="nmap -sC -sV -oN nmap"
+
+# Eza
+alias l="eza -l --icons --git -a -h"
+alias lt="eza --tree --level=2 --long --icons --git -h"
+alias ltree="eza --tree --level=2  --icons --git -h"
+
+# System
+alias la=tree
+alias cat=bat
+alias cl='clear'
+alias refresh="exec zsh"
+
+
+# Dirs
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ......="cd ../../../../.."
+
+
+# *** ___ FZF ___ *** ###
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow'
+# navigation
+cx() { cd "$@" && l; }
+fcd() { cd "$(find . -type d -not -path '*/.*' | fzf)" && l; }
+f() { echo "$(find . -type f -not -path '*/.*' | fzf)" | pbcopy }
+fv() { nvim "$(find . -type f -not -path '*/.*' | fzf)" }

@@ -1,8 +1,10 @@
-# # Created by Zap installer
-[ -f "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh" ]
-source "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh"
-# source <(fzf --zsh)
+# Source
+[ -f "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh" ] && source "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh" # zap
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh # fzf
+[ -f "$ZDOTDIR/.zsh_aliases" ] && source "$ZDOTDIR/.zsh_aliases"
 
+
+# Plugins
 plug "zap-zsh/supercharge"
 plug "zap-zsh/fzf"							
 plug "zsh-users/zsh-autosuggestions"
@@ -21,7 +23,6 @@ autoload -Uz compinit
 compinit -d ~/.cache/zcompdump
 compinit
 
-
 # bindkey ' ' magic-space                           # do history expansion on space
 bindkey '^U' backward-kill-line                   # ctrl + U
 bindkey '^[[3;5~' kill-word                       # ctrl + Supr
@@ -35,37 +36,6 @@ bindkey '^[[F' end-of-line                        # end
 bindkey '^[[Z' undo                               # shift + tab undo last action
 
 
-# Dirs
-alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias .....="cd ../../../.."
-alias ......="cd ../../../../.."
-
-# Nmap
-alias nm="nmap -sC -sV -oN nmap"
-
-
-# Eza
-alias l="eza -l --icons --git -a -h"
-alias lt="eza --tree --level=2 --long --icons --git -h"
-alias ltree="eza --tree --level=2  --icons --git -h"
-
-# System
-alias la=tree
-alias cat=bat
-alias cl='clear'
-alias source="exec zsh"
-
-# *** ___ FZF ___ *** ###
-export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow'
-# navigation
-cx() { cd "$@" && l; }
-fcd() { cd "$(find . -type d -not -path '*/.*' | fzf)" && l; }
-f() { echo "$(find . -type f -not -path '*/.*' | fzf)" | pbcopy }
-fv() { nvim "$(find . -type f -not -path '*/.*' | fzf)" }
-
-
 # History configurations
 setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
 setopt hist_ignore_dups       # ignore duplicated commands history list
@@ -75,6 +45,8 @@ setopt share_history         # share command history data
 
 # configure `time` format
 TIMEFMT=$'\nreal\t%E\nuser\t%U\nsys\t%S\ncpu\t%P'
+
+
 
 # Using the starship prompt
 eval "$(zoxide init zsh)"
