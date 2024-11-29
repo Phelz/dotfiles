@@ -11,6 +11,6 @@ export SAVEHIST=100000                   # Maximum events in history file
 
 # Tmux
 export TMUX_PLUGIN_MANAGER_PATH=$XDG_CONFIG_HOME/tmux/plugins
-# tmux dir
 
-
+# Starship
+export STARSHIP_CONFIG=~/.config/starship/starship.toml
