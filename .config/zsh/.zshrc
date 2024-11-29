@@ -1,6 +1,8 @@
 # # Created by Zap installer
 [ -f "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh" ] && source "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh"
 
+
+
 plug "zsh-users/zsh-autosuggestions"
 plug "zap-zsh/supercharge"
 plug "zap-zsh/fzf"								
@@ -31,10 +33,6 @@ bindkey '^[[6~' end-of-buffer-or-history          # page down
 bindkey '^[[H' beginning-of-line                  # home
 bindkey '^[[F' end-of-line                        # end
 bindkey '^[[Z' undo                               # shift + tab undo last action
-
-# Using the starship prompt
-# eval "$(starship init zsh)"
-
 
 
 # Dirs
@@ -67,10 +65,6 @@ f() { echo "$(find . -type f -not -path '*/.*' | fzf)" | pbcopy }
 fv() { nvim "$(find . -type f -not -path '*/.*' | fzf)" }
 
 
-eval "$(zoxide init zsh)"
-# eval "$(atuin init zsh)" # A command history search tool (not currently using it)
-# eval "$(direnv hook zsh)" # An environment switcher for the shell (not currently using it)
-
 # History configurations
 setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
 setopt hist_ignore_dups       # ignore duplicated commands history list
@@ -81,26 +75,32 @@ setopt share_history         # share command history data
 # configure `time` format
 TIMEFMT=$'\nreal\t%E\nuser\t%U\nsys\t%S\ncpu\t%P'
 
+# Using the starship prompt
+eval "$(zoxide init zsh)"
+# eval "$(atuin init zsh)" # A command history search tool (not currently using it)
+# eval "$(direnv hook zsh)" # An environment switcher for the shell (not currently using it)
+
+
 
 # Idk what these do
 ### FZF ###
-export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow'
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow'
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 
-function ranger {
-	local IFS=$'\t\n'
-	local tempfile="$(mktemp -t tmp.XXXXXX)"
-	local ranger_cmd=(
-		command
-		ranger
-		--cmd="map Q chain shell echo %d > "$tempfile"; quitall"
-	)
+# function ranger {
+# 	local IFS=$'\t\n'
+# 	local tempfile="$(mktemp -t tmp.XXXXXX)"
+# 	local ranger_cmd=(
+# 		command
+# 		ranger
+# 		--cmd="map Q chain shell echo %d > "$tempfile"; quitall"
+# 	)
 
-	${ranger_cmd[@]} "$@"
-	if [[ -f "$tempfile" ]] && [[ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]]; then
-		cd -- "$(cat "$tempfile")" || return
-	fi
-	command rm -f -- "$tempfile" 2>/dev/null
-}
-alias rr='ranger'
+# 	${ranger_cmd[@]} "$@"
+# 	if [[ -f "$tempfile" ]] && [[ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]]; then
+# 		cd -- "$(cat "$tempfile")" || return
+# 	fi
+# 	command rm -f -- "$tempfile" 2>/dev/null
+# }
+# alias rr='ranger'
