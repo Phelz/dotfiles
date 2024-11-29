@@ -3,9 +3,9 @@
 source "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh"
 # source <(fzf --zsh)
 
-plug "zsh-users/zsh-autosuggestions"
 plug "zap-zsh/supercharge"
-plug "zap-zsh/fzf"								
+plug "zap-zsh/fzf"							
+plug "zsh-users/zsh-autosuggestions"
 plug "MichaelAquilina/zsh-you-should-use"		
 plug "chivalryq/git-alias"						
 plug "Aloxaf/fzf-tab"							# Command search like fzf
