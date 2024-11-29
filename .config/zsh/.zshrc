@@ -1,7 +1,7 @@
 # # Created by Zap installer
-[ -f "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh" ] && source "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh"
-
-
+[ -f "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh" ]
+source "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh"
+# source <(fzf --zsh)
 
 plug "zsh-users/zsh-autosuggestions"
 plug "zap-zsh/supercharge"
@@ -57,7 +57,8 @@ alias cat=bat
 alias cl='clear'
 alias source="exec zsh"
 
-
+# *** ___ FZF ___ *** ###
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow'
 # navigation
 cx() { cd "$@" && l; }
 fcd() { cd "$(find . -type d -not -path '*/.*' | fzf)" && l; }
@@ -82,9 +83,11 @@ eval "$(zoxide init zsh)"
 
 
 
+
+
 # Idk what these do
-### FZF ###
-# export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow'
+
+
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 
