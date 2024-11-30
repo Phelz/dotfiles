@@ -7,11 +7,11 @@
 # Plugins
 plug "zap-zsh/supercharge"
 plug "zap-zsh/fzf"		
+plug "Aloxaf/fzf-tab"							# Command search like fzf
 plug "zap-zsh/exa"					
 plug "zsh-users/zsh-autosuggestions"
 plug "MichaelAquilina/zsh-you-should-use"		
 plug "chivalryq/git-alias"						
-plug "Aloxaf/fzf-tab"							# Command search like fzf
 plug "wintermi/zsh-starship" 					# Prompt
 plug "zsh-users/zsh-syntax-highlighting"		
 
