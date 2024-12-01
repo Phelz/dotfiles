@@ -44,6 +44,7 @@
 [delta]
 	features = line-numbers decorations
 	line-numbers = true
+	
 [delta "decorations"]
 	minus-style = red bold normal
 	plus-style = green bold normal
@@ -58,14 +59,20 @@
 	minus-empty-line-marker-style = normal normal
 	plus-empty-line-marker-style = normal normal
 	line-numbers-right-format = "{np:^4}│ "
+
+
 [trim]
 	bases = master,main
 	protected = *production
+
+
 # [github]
 # 	user = pksunkara
 # 	token = token
 [sequence]
 	editor = interactive-rebase-tool
+
+
 [alias]
 	a = add --all
 	ai = add -i
@@ -264,6 +271,9 @@
 	theirs = "!f() { git checkout --theirs $@ && git add $@; }; f"
 	subrepo = !sh -c 'git filter-branch --prune-empty --subdirectory-filter $1 master' -
 	human = name-rev --name-only --refs=refs/heads/*
+
+# *** ___ Large File System ___ ***
+# TODO: Understand how this works
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
