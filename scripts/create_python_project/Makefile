@@ -19,6 +19,7 @@ init_dir:
 	@echo "Initializing project at $(PROJECT_DIR)..."
 	@mkdir -p $(PROJECT_DIR)/src
 	@echo "# $(PROJECT_NAME)" > $(PROJECT_DIR)/README.md
+	@echo "mpl_stylesheets/" > $(PROJECT_DIR)/.gitignore
 	@cp definitions.py $(PROJECT_DIR)/src/definitions.py
 	@echo "Copying default environment.yml template..."
 	@cp $(ENV_YML) $(PROJECT_DIR)/$(ENV_YML)
