@@ -18,6 +18,7 @@ setup: init_dir init_git create_env activate_env link_stylesheets message
 init_dir:
 	@echo "Initializing project at $(PROJECT_DIR)..."
 	@mkdir -p $(PROJECT_DIR)/src
+	@echo "# $(PROJECT_NAME)" > $(PROJECT_DIR)/README.md
 	@cp definitions.py $(PROJECT_DIR)/src/definitions.py
 	@echo "Copying default environment.yml template..."
 	@cp $(ENV_YML) $(PROJECT_DIR)/$(ENV_YML)

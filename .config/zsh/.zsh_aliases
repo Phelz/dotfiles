@@ -11,6 +11,9 @@ alias la=tree
 alias cat=bat
 alias cl='clear'
 alias refresh="exec zsh"
+alias reboot="sudo reboot now"
+alias shutdown="sudo shutdown now"
+
 
 # Dirs
 alias ..="cd .."
