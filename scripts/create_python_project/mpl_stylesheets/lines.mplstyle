@@ -2,7 +2,7 @@ lines.linewidth: 1              # line width in points
 lines.linestyle: -                 # solid line
 lines.color:     000000                # has no affect on plot(); see axes.prop_cycle
 lines.marker:          D        # the default marker
-lines.markerfacecolor: E51010        # the default marker face color
+lines.markerfacecolor: 000000        # the default marker face color
 lines.markeredgecolor: 000000        # the default marker edge color
 lines.markeredgewidth: 1.0         # the line width around the marker symbol
 lines.markersize:      6           # marker size, in points

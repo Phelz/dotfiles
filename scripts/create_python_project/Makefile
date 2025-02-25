@@ -1,8 +1,8 @@
 SHELL := /bin/bash
 
-# Usage: Run 'make setup' and provide the PROJECT_NAME and PYTHON_VERSION as inputs
+# * Usage: Run 'make setup' and provide the PROJECT_NAME and PYTHON_VERSION as inputs
 
-# Variables (set during runtime)
+# * Variables (set during runtime)
 PROJECTS_DIR   := $(HOME)/projects
 PROJECT_NAME   := $(shell read -p "Enter project name: " project_name; echo $$project_name)
 PYTHON_VERSION := $(shell read -p "Enter Python version (e.g., 3.9): " python_version; echo $$python_version)
@@ -19,8 +19,13 @@ init_dir:
 	@echo "Initializing project at $(PROJECT_DIR)..."
 	@mkdir -p $(PROJECT_DIR)/src
 	@echo "# $(PROJECT_NAME)" > $(PROJECT_DIR)/README.md
-	@echo "mpl_stylesheets/" > $(PROJECT_DIR)/.gitignore
+
+	@echo "Copying default project files..."
 	@cp definitions.py $(PROJECT_DIR)/src/definitions.py
+	@cp -r .gitignore $(PROJECT_DIR)/.gitignore
+	@cp -r data $(PROJECT_DIR)/data
+	@cp -r figures $(PROJECT_DIR)/figures
+	
 	@echo "Copying default environment.yml template..."
 	@cp $(ENV_YML) $(PROJECT_DIR)/$(ENV_YML)
 	@sed -i "s/<PROJECT_NAME>/$(PROJECT_NAME)/" $(PROJECT_DIR)/$(ENV_YML)
