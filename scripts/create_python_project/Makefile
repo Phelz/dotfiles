@@ -23,8 +23,10 @@ init_dir:
 	@echo "Copying default project files..."
 	@cp definitions.py $(PROJECT_DIR)/src/definitions.py
 	@cp -r .gitignore $(PROJECT_DIR)/.gitignore
-	@cp -r data $(PROJECT_DIR)/data
-	@cp -r figures $(PROJECT_DIR)/figures
+	@mkdir -p $(PROJECT_DIR)/data
+	@echo "import pathlib\n\nDIR_PATH = pathlib.Path(__file__).parent" > $(PROJECT_DIR)/data/__init__.py
+	@mkdir -p $(PROJECT_DIR)/figures
+	@echo "import pathlib\n\nDIR_PATH = pathlib.Path(__file__).parent" > $(PROJECT_DIR)/figures/__init__.py
 	
 	@echo "Copying default environment.yml template..."
 	@cp $(ENV_YML) $(PROJECT_DIR)/$(ENV_YML)
