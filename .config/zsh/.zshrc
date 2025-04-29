@@ -20,9 +20,13 @@ setopt prompt_subst
 autoload bashcompinit && bashcompinit
 
 # enable completion features
+fpath+="$ZDOTDIR/.zfunc"  # Poetry
 autoload -Uz compinit
 compinit -d ~/.cache/zcompdump
-compinit
+# compinit
+
+# Poetry
+# autoload -Uz compinit && compinit
 
 # bindkey ' ' magic-space                           # do history expansion on space
 bindkey '^U' backward-kill-line                   # ctrl + U
