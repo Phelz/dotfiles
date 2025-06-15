@@ -2,9 +2,9 @@
 alias nm="nmap -sC -sV -oN nmap"
 
 # Eza
-alias l="eza -l --icons --git -a -h --total-size"
-alias lt="eza --tree --level=2 --long --icons --git -h --total-size"
-alias ltree="eza --tree --level=2  --icons --git -h"
+alias l="eza -l --icons --git -a -h --total-size -b"
+alias lt="eza --tree --level=2 --long --icons --git -h --total-size -b"
+alias ltree="eza --tree --level=2  --icons --git -h -b"
 
 # System
 alias la=tree
